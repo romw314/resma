@@ -16,13 +16,12 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
-      - name: Installing Python
-        uses: actions/setup-python@v6
+      - name: Installing Python and uv
+        uses: astral-sh/setup-uv@v6
         with:
           python-version: ${{ matrix.python-version }}
-
-      - name: Installing uv
-        run: pipx install uv
+          version: "0.9.11"
+          enable-cache: true
 
       - name: Installing dependencies
         run: uv sync
@@ -44,13 +43,12 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
-      - name: Installing Python
-        uses: actions/setup-python@v4
+      - name: Installing Python and uv
+        uses: astral-sh/setup-uv@v6
         with:
           python-version: ${{ matrix.python-version }}
-
-      - name: Installing uv
-        run: pipx install uv
+          version: "0.9.11"
+          enable-cache: true
 
       - name: Installing dependencies
         run: uv sync
